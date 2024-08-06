@@ -1,6 +1,6 @@
 package org.acme.entity;
 
-public class Project {
+public class Projects {
     private Long id;
     private String image;
     private String title;

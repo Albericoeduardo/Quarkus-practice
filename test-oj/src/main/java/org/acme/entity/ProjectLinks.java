@@ -9,7 +9,7 @@ public class ProjectLinks {
     
     //@ManyToOne
     //@JoinColumn(name = "id")
-    private Project project;
+    private Projects project;
 
     public Long getId() {
         return id;
@@ -29,10 +29,10 @@ public class ProjectLinks {
     public void setUrl(URL url) {
         this.url = url;
     }
-    public Project getProject() {
+    public Projects getProject() {
         return project;
     }
-    public void setProject(Project project) {
+    public void setProject(Projects project) {
         this.project = project;
     }
 }
