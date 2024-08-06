@@ -7,8 +7,10 @@ import java.util.Optional;
 import org.acme.entity.Person;
 import org.acme.service.PersonService;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.core.Response;
 
+@ApplicationScoped
 public class PersonServiceImpl implements PersonService{
 
     public List<Person> team = new ArrayList<>();

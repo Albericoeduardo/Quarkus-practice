@@ -3,6 +3,7 @@ package org.acme.resource;
 import org.acme.entity.Project;
 import org.acme.service.ProjectService;
 
+import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
@@ -14,10 +15,11 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 @Path("/projects")
-@Produces(MediaType.TEXT_PLAIN)
-@Consumes(MediaType.TEXT_PLAIN)
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class ProjectResource {
 
+    @Inject
     ProjectService projectsService;
     
     @GET
@@ -31,6 +33,7 @@ public class ProjectResource {
     }
 
     @DELETE
+    @Path("/{id}")
     public Response deleteProject(@PathParam("id") Long id){
         return projectsService.deleteProject(id);
     }

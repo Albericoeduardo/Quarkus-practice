@@ -7,8 +7,10 @@ import java.util.Optional;
 import org.acme.entity.Recommendation;
 import org.acme.service.RecommendationService;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.core.Response;
 
+@ApplicationScoped
 public class RecommendationServiceImpl implements RecommendationService {
 
     public List<Recommendation> recommendations = new ArrayList<>();

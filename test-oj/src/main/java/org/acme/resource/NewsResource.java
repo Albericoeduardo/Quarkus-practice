@@ -3,6 +3,7 @@ package org.acme.resource;
 import org.acme.entity.News;
 import org.acme.service.NewsService;
 
+import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
@@ -17,6 +18,8 @@ import jakarta.ws.rs.core.Response;
 @Produces(MediaType.TEXT_PLAIN)
 @Consumes(MediaType.TEXT_PLAIN)
 public class NewsResource {
+    
+    @Inject
     NewsService newsService;
 
     @GET
@@ -30,6 +33,7 @@ public class NewsResource {
     }
 
     @DELETE
+    @Path("/{id}")
     public Response deleteNews(@PathParam("id") Long id){
         return newsService.deleteNews(id);
     }

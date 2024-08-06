@@ -3,6 +3,7 @@ package org.acme.resource;
 import org.acme.entity.Person;
 import org.acme.service.PersonService;
 
+import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
@@ -18,6 +19,7 @@ import jakarta.ws.rs.core.Response;
 @Consumes(MediaType.TEXT_PLAIN)
 public class PersonResource {
     
+    @Inject
     PersonService personService;
 
     @GET
@@ -31,6 +33,7 @@ public class PersonResource {
     }
 
     @DELETE
+    @Path("/{id}")
     public Response deletePerson(@PathParam("id") Long id){
         return personService.deletePerson(id);
     }

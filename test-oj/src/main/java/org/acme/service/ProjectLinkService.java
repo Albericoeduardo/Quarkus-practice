@@ -9,5 +9,5 @@ public interface ProjectLinkService {
 
     Response createProjectLink(ProjectLink newProjectLink);
 
-    Response deleteProjectLinkResponse(Long id);
+    Response deleteProjectLink(Long id);
 }

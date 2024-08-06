@@ -3,6 +3,7 @@ package org.acme.resource;
 import org.acme.entity.Recommendation;
 import org.acme.service.RecommendationService;
 
+import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
@@ -14,10 +15,11 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 @Path("/recommendations")
-@Produces(MediaType.TEXT_PLAIN)
-@Consumes(MediaType.TEXT_PLAIN)
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class RecommendationResouce {
 
+    @Inject
     RecommendationService recommendationService;
 
     @GET
@@ -31,6 +33,7 @@ public class RecommendationResouce {
     }
 
     @DELETE
+    @Path("/{id}")
     public Response deleteRecomendation(@PathParam("id") Long id){
         return recommendationService.deleteRecomendation(id);
     }

@@ -7,8 +7,10 @@ import java.util.Optional;
 import org.acme.entity.ProjectLink;
 import org.acme.service.ProjectLinkService;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.core.Response;
 
+@ApplicationScoped
 public class ProjectLinkServiceImpl implements ProjectLinkService {
 
     public List<ProjectLink> projectLinks = new ArrayList<>();
@@ -25,7 +27,7 @@ public class ProjectLinkServiceImpl implements ProjectLinkService {
     }
 
     @Override
-    public Response deleteProjectLinkResponse(Long id) {
+    public Response deleteProjectLink(Long id) {
         Optional<ProjectLink> linkToDelete = projectLinks.stream().filter(projectLinks -> projectLinks.getId().equals(id)).findFirst();
 
         boolean removed = false;

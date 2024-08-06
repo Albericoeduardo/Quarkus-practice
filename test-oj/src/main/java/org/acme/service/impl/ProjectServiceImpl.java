@@ -7,8 +7,10 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.core.Response;
 
+@ApplicationScoped
 public class ProjectServiceImpl implements ProjectService{
 
     public List<Project> projects= new ArrayList<>();
