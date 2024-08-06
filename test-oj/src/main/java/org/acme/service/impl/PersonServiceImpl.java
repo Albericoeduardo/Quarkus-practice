@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.acme.entity.Team;
-import org.acme.service.TeamService;
+import org.acme.entity.Person;
+import org.acme.service.PersonService;
 
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
@@ -17,35 +17,35 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 @Path("/team")
-public class TeamServiceImpl implements TeamService{
+public class PersonServiceImpl implements PersonService{
 
-    public List<Team> teams = new ArrayList<>();
+    public List<Person> team = new ArrayList<>();
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Override
-    public Response getTeam() {
-        return Response.ok(teams).build();
+    public Response getPerson() {
+        return Response.ok(team).build();
     }
 
     @POST
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes(MediaType.TEXT_PLAIN)
     @Override
-    public Response createTeam(Team newTeam) {
-        teams.add(newTeam);
+    public Response createPerson(Person newTeam) {
+        team.add(newTeam);
         return Response.status(Response.Status.CREATED).entity(newTeam).build();
     }
 
     @DELETE
     @Consumes(MediaType.TEXT_PLAIN)
     @Override
-    public Response deleteTeam(Long id) {
-        Optional<Team> teamToDelete = teams.stream().filter(teams -> teams.getId().equals(id)).findFirst();
+    public Response deletePerson(Long id) {
+        Optional<Person> teamToDelete = team.stream().filter(team -> team.getId().equals(id)).findFirst();
 
         boolean removed = false;
         if(teamToDelete.isPresent()){
-            removed = teams.remove(teamToDelete.get());
+            removed = team.remove(teamToDelete.get());
         }
         if (removed) {
             Response.noContent().build();
