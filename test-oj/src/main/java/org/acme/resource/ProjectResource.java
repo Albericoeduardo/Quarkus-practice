@@ -1,7 +1,7 @@
 package org.acme.resource;
 
-import org.acme.entity.Projects;
-import org.acme.service.ProjectsService;
+import org.acme.entity.Project;
+import org.acme.service.ProjectService;
 
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
@@ -18,7 +18,7 @@ import jakarta.ws.rs.core.Response;
 @Consumes(MediaType.TEXT_PLAIN)
 public class ProjectResource {
 
-    ProjectsService projectsService;
+    ProjectService projectsService;
     
     @GET
     public Response getProject(){
@@ -26,7 +26,7 @@ public class ProjectResource {
     }
 
     @POST
-    public Response createProject(Projects newProject){
+    public Response createProject(Project newProject){
         return projectsService.createProject(newProject);
     }
 
