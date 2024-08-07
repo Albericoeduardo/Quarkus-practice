@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.acme.dto.RecommendationDTO;
 import org.acme.model.Recommendation;
 import org.acme.service.RecommendationService;
 
@@ -21,9 +22,10 @@ public class RecommendationServiceImpl implements RecommendationService {
     }
 
     @Override
-    public Response createRecomendation(Recommendation newRecomendation) {
-        recommendations.add(newRecomendation);
-        return Response.status(Response.Status.CREATED).entity(newRecomendation).build();
+    public Response createRecomendation(RecommendationDTO recomendationDTO) {
+        Recommendation recommendation = RecommendationDTO.createRecommendation(recomendationDTO);
+        recommendations.add(recommendation);
+        return Response.status(Response.Status.CREATED).entity(recommendation).build();
     }
 
     @Override

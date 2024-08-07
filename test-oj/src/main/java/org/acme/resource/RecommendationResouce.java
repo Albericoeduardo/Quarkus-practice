@@ -1,6 +1,6 @@
 package org.acme.resource;
 
-import org.acme.model.Recommendation;
+import org.acme.dto.RecommendationDTO;
 import org.acme.service.RecommendationService;
 
 import jakarta.inject.Inject;
@@ -28,8 +28,8 @@ public class RecommendationResouce {
     }
 
     @POST
-    public Response createRecomendation(Recommendation newRecommendation){
-        return recommendationService.createRecomendation(newRecommendation);
+    public Response createRecomendation(RecommendationDTO dto){
+        return recommendationService.createRecomendation(dto);
     }
 
     @DELETE
