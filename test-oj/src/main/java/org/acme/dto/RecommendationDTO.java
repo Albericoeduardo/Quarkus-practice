@@ -17,7 +17,7 @@ public record RecommendationDTO(
 
         recommendation.setType(recommendationDTO.type());
         recommendation.setImage(recommendationDTO.image());
-        recommendation.setTitle(recommendationDTO.image());
+        recommendation.setTitle(recommendationDTO.title());
         recommendation.setDescription(recommendationDTO.description());
         recommendation.setUrl(recommendationDTO.url());
         return recommendation;
