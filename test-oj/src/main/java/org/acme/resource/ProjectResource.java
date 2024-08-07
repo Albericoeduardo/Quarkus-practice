@@ -1,6 +1,6 @@
 package org.acme.resource;
 
-import org.acme.entity.Project;
+import org.acme.model.Project;
 import org.acme.service.ProjectService;
 
 import jakarta.inject.Inject;

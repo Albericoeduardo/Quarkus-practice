@@ -1,6 +1,6 @@
 package org.acme.resource;
 
-import org.acme.entity.Recommendation;
+import org.acme.model.Recommendation;
 import org.acme.service.RecommendationService;
 
 import jakarta.inject.Inject;

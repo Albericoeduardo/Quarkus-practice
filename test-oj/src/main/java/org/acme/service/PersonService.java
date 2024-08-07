@@ -1,6 +1,6 @@
 package org.acme.service;
 
-import org.acme.entity.Person;
+import org.acme.model.Person;
 
 import jakarta.ws.rs.core.Response;
 

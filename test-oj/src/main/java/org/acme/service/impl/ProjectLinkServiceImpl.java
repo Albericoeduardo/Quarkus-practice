@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.acme.entity.ProjectLink;
+import org.acme.model.ProjectLink;
 import org.acme.service.ProjectLinkService;
 
 import jakarta.enterprise.context.ApplicationScoped;

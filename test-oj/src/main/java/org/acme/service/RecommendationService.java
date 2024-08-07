@@ -1,6 +1,6 @@
 package org.acme.service;
 
-import org.acme.entity.Recommendation;
+import org.acme.model.Recommendation;
 
 import jakarta.ws.rs.core.Response;
 

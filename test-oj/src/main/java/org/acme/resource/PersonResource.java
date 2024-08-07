@@ -1,6 +1,6 @@
 package org.acme.resource;
 
-import org.acme.entity.Person;
+import org.acme.model.Person;
 import org.acme.service.PersonService;
 
 import jakarta.inject.Inject;

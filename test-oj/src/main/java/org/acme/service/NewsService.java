@@ -1,6 +1,6 @@
 package org.acme.service;
 
-import org.acme.entity.News;
+import org.acme.model.News;
 
 import jakarta.ws.rs.core.Response;
 

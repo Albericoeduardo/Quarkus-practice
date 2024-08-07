@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.acme.entity.News;
+import org.acme.model.News;
 import org.acme.service.NewsService;
 
 import jakarta.enterprise.context.ApplicationScoped;

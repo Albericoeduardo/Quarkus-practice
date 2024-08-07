@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.acme.entity.Recommendation;
+import org.acme.model.Recommendation;
 import org.acme.service.RecommendationService;
 
 import jakarta.enterprise.context.ApplicationScoped;

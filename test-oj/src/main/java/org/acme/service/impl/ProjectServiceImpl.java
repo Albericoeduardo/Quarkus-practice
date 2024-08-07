@@ -1,6 +1,6 @@
 package org.acme.service.impl;
 
-import org.acme.entity.Project;
+import org.acme.model.Project;
 import org.acme.service.ProjectService;
 
 import java.util.List;

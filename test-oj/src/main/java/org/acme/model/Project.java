@@ -1,4 +1,4 @@
-package org.acme.entity;
+package org.acme.model;
 
 public class Project {
     private Long id;

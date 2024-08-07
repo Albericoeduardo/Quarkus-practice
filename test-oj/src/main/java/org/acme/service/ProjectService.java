@@ -1,6 +1,6 @@
 package org.acme.service;
 
-import org.acme.entity.Project;
+import org.acme.model.Project;
 
 import jakarta.ws.rs.core.Response;
 

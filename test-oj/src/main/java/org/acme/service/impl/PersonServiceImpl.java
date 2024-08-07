@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.acme.entity.Person;
+import org.acme.model.Person;
 import org.acme.service.PersonService;
 
 import jakarta.enterprise.context.ApplicationScoped;
