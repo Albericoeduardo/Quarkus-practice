@@ -1,6 +1,6 @@
 package org.acme.resource;
 
-import org.acme.model.News;
+import org.acme.dto.NewsDTO;
 import org.acme.service.NewsService;
 
 import jakarta.inject.Inject;
@@ -28,8 +28,8 @@ public class NewsResource {
     }
 
     @POST
-    public Response createNews(News newNews){
-        return newsService.createNews(newNews);
+    public Response createNews(NewsDTO dto){
+        return newsService.createNews(dto);
     }
 
     @DELETE
