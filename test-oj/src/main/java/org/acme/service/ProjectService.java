@@ -1,13 +1,12 @@
 package org.acme.service;
 
-import org.acme.model.Project;
-
+import org.acme.dto.ProjectDTO;
 import jakarta.ws.rs.core.Response;
 
 public interface ProjectService {
     Response getProject();
 
-    Response createProject(Project newProject);
+    Response createProject(ProjectDTO projectDTO);
 
     Response deleteProject(Long id);
 }

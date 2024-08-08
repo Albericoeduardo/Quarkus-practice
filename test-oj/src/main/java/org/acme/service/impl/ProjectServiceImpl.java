@@ -1,5 +1,6 @@
 package org.acme.service.impl;
 
+import org.acme.dto.ProjectDTO;
 import org.acme.model.Project;
 import org.acme.service.ProjectService;
 
@@ -21,9 +22,10 @@ public class ProjectServiceImpl implements ProjectService{
     }
 
     @Override
-    public Response createProject(Project newProject) {
-        projects.add(newProject);
-        return Response.status(Response.Status.CREATED).entity(newProject).build();
+    public Response createProject(ProjectDTO projectDTO) {
+        Project project = ProjectDTO.createProject(projectDTO);
+        projects.add(project);
+        return Response.status(Response.Status.CREATED).entity(projects).build();
     }
 
     @Override

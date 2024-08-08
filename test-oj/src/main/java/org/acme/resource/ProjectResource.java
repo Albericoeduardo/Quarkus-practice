@@ -1,6 +1,6 @@
 package org.acme.resource;
 
-import org.acme.model.Project;
+import org.acme.dto.ProjectDTO;
 import org.acme.service.ProjectService;
 
 import jakarta.inject.Inject;
@@ -28,8 +28,8 @@ public class ProjectResource {
     }
 
     @POST
-    public Response createProject(Project newProject){
-        return projectsService.createProject(newProject);
+    public Response createProject(ProjectDTO dto){
+        return projectsService.createProject(dto);
     }
 
     @DELETE
