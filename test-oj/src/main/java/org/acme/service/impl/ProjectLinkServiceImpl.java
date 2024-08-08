@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.acme.dto.ProjectLinkDTO;
 import org.acme.model.ProjectLink;
 import org.acme.service.ProjectLinkService;
 
@@ -21,9 +22,10 @@ public class ProjectLinkServiceImpl implements ProjectLinkService {
     }
 
     @Override
-    public Response createProjectLink(ProjectLink newProjectLink) {
-        projectLinks.add(newProjectLink);
-        return Response.status(Response.Status.CREATED).entity(newProjectLink).build();
+    public Response createProjectLink(ProjectLinkDTO projectLinkDTO) {
+        ProjectLink projectLink = ProjectLinkDTO.createProjectLink(projectLinkDTO);
+        projectLinks.add(projectLink);
+        return Response.status(Response.Status.CREATED).entity(projectLinks).build();
     }
 
     @Override

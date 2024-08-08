@@ -1,6 +1,6 @@
 package org.acme.resource;
 
-import org.acme.model.ProjectLink;
+import org.acme.dto.ProjectLinkDTO;
 import org.acme.service.ProjectLinkService;
 
 import jakarta.inject.Inject;
@@ -28,8 +28,8 @@ public class ProjectLinksResource {
     }
 
     @POST
-    public Response createProjectLink(ProjectLink newProjectLink){
-        return projectLinkService.createProjectLink(newProjectLink);
+    public Response createProjectLink(ProjectLinkDTO dto){
+        return projectLinkService.createProjectLink(dto);
     }
 
     @DELETE
