@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.acme.dto.PersonDTO;
 import org.acme.model.Person;
 import org.acme.service.PersonService;
 
@@ -21,9 +22,10 @@ public class PersonServiceImpl implements PersonService{
     }
 
     @Override
-    public Response createPerson(Person newTeam) {
-        team.add(newTeam);
-        return Response.status(Response.Status.CREATED).entity(newTeam).build();
+    public Response createPerson(PersonDTO personDTO) {
+        Person person = PersonDTO.createPerson(personDTO);
+        team.add(person);
+        return Response.status(Response.Status.CREATED).entity(team).build();
     }
 
     @Override

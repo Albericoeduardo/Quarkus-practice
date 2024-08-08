@@ -1,6 +1,6 @@
 package org.acme.resource;
 
-import org.acme.model.Person;
+import org.acme.dto.PersonDTO;
 import org.acme.service.PersonService;
 
 import jakarta.inject.Inject;
@@ -28,8 +28,8 @@ public class PersonResource {
     }
 
     @POST
-    public Response createPerson(Person newPerson){
-        return personService.createPerson(newPerson);
+    public Response createPerson(PersonDTO dto){
+        return personService.createPerson(dto);
     }
 
     @DELETE
