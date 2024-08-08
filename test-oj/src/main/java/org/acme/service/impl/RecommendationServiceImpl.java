@@ -37,7 +37,7 @@ public class RecommendationServiceImpl implements RecommendationService {
             removed = recommendations.remove(recomendationToDelete.get());
         }
         if (removed) {
-            Response.noContent().build();
+            return Response.noContent().build();
         }
         return Response.status(Response.Status.BAD_REQUEST).build();
     }

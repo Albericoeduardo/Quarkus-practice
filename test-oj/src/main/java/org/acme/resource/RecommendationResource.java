@@ -17,7 +17,7 @@ import jakarta.ws.rs.core.Response;
 @Path("/recommendations")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class RecommendationResouce {
+public class RecommendationResource {
 
     @Inject
     RecommendationService recommendationService;
