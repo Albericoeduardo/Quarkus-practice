@@ -15,6 +15,7 @@ public record RecommendationDTO(
     public static Recommendation createRecommendation(RecommendationDTO recommendationDTO){
         Recommendation recommendation = new Recommendation();
 
+        recommendation.setId(recommendationDTO.id());
         recommendation.setType(recommendationDTO.type());
         recommendation.setImage(recommendationDTO.image());
         recommendation.setTitle(recommendationDTO.title());
