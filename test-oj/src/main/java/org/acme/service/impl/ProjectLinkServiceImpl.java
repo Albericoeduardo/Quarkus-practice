@@ -37,7 +37,7 @@ public class ProjectLinkServiceImpl implements ProjectLinkService {
             removed = projectLinks.remove(linkToDelete.get());
         }
         if (removed) {
-            Response.noContent().build();
+            return Response.noContent().build();
         }
         return Response.status(Response.Status.BAD_REQUEST).build();
     }

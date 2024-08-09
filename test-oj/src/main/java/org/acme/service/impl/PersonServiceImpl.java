@@ -37,7 +37,7 @@ public class PersonServiceImpl implements PersonService{
             removed = team.remove(teamToDelete.get());
         }
         if (removed) {
-            Response.noContent().build();
+            return Response.noContent().build();
         }
         return Response.status(Response.Status.BAD_REQUEST).build();
     }

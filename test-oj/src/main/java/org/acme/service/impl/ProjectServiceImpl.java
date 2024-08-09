@@ -37,7 +37,7 @@ public class ProjectServiceImpl implements ProjectService{
             removed = projects.remove(projectToDelete.get());
         }
         if (removed) {
-            Response.noContent().build();
+            return Response.noContent().build();
         }
         return Response.status(Response.Status.BAD_REQUEST).build();
     }

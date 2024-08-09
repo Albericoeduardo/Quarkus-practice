@@ -38,7 +38,7 @@ public class NewsServiceImpl implements NewsService{
             removed = newsList.remove(newsToDelete.get());
         }
         if (removed) {
-            Response.noContent().build();
+            return Response.noContent().build();
         }
         return Response.status(Response.Status.BAD_REQUEST).build();
     }
