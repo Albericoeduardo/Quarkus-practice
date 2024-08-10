@@ -42,4 +42,9 @@ public class ProjectServiceImpl implements ProjectService{
         return Response.status(Response.Status.BAD_REQUEST).build();
     }
     
+    public Optional<Project> findProjectById(Long id) {
+        return projects.stream()
+                       .filter(project -> project.getId().equals(id))
+                       .findFirst();
+    }
 }

@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.acme.dto.ProjectLinkDTO;
+import org.acme.model.Project;
 import org.acme.model.ProjectLink;
 import org.acme.service.ProjectLinkService;
+import org.acme.service.ProjectService;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.core.Response;
@@ -16,6 +18,8 @@ public class ProjectLinkServiceImpl implements ProjectLinkService {
 
     public List<ProjectLink> projectLinks = new ArrayList<>();
 
+    ProjectService projectService;
+
     @Override
     public Response getProjectLink() {
         return Response.ok(projectLinks).build();
@@ -23,7 +27,13 @@ public class ProjectLinkServiceImpl implements ProjectLinkService {
 
     @Override
     public Response createProjectLink(ProjectLinkDTO projectLinkDTO) {
-        ProjectLink projectLink = ProjectLinkDTO.createProjectLink(projectLinkDTO);
+        Optional<Project> project = projectService.findProjectById(projectLinkDTO.projectId());
+        
+        if (project.isEmpty()) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("project not found").build();
+        }
+
+        ProjectLink projectLink = ProjectLinkDTO.createProjectLink(projectLinkDTO, project.get());
         projectLinks.add(projectLink);
         return Response.status(Response.Status.CREATED).entity(projectLinks).build();
     }
