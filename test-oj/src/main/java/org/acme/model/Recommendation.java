@@ -1,6 +1,7 @@
 package org.acme.model;
 
 import java.net.URL;
+import javax.persistence.Lob;
 
 public class Recommendation {
     private Long id;
