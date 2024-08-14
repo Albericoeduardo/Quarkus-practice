@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.acme.dto.NewsDTO;
+import org.acme.form.NewsForm;
 import org.acme.model.News;
 import org.acme.service.NewsService;
 
@@ -23,8 +23,10 @@ public class NewsServiceImpl implements NewsService{
     }
 
     @Override
-    public Response createNews(NewsDTO newsDTO){
-        News news = NewsDTO.creatNews(newsDTO);
+    public Response createNews(NewsForm newsForm){
+        News news = new News();
+        news.setTitle(newsForm.getName());
+        news.setImage(newsForm.getImage());
         newsList.add(news);
         return Response.status(Response.Status.CREATED).entity(news).build();
     }

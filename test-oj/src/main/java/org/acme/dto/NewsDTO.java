@@ -6,7 +6,7 @@ public record NewsDTO (
     Long id,
     String title,
     String description,
-    String image
+    byte[] image
 ) {
     public static News creatNews(NewsDTO newsDTO) {
         News news = new News();
