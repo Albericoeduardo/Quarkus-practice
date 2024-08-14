@@ -1,6 +1,5 @@
 package org.acme.resource;
 
-import org.acme.dto.NewsDTO;
 import org.acme.form.NewsForm;
 import org.acme.service.NewsService;
 import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
