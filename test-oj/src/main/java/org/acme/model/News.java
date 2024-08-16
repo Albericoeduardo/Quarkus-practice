@@ -4,7 +4,7 @@ public class News {
     private Long id;
     private String title;
     private String description;
-    private byte[] image;
+    private String image;
 
     public Long getId() {
         return id;
@@ -24,10 +24,10 @@ public class News {
     public void setDescription(String description) {
         this.description = description;
     }
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }

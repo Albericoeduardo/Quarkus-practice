@@ -1,6 +1,7 @@
 package org.acme.service.impl;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,7 +27,9 @@ public class NewsServiceImpl implements NewsService{
     public Response createNews(NewsForm newsForm){
         News news = new News();
         news.setTitle(newsForm.getName());
-        news.setImage(newsForm.getImage());
+
+        String imageBase64 = Base64.getEncoder().encodeToString(newsForm.getImage());
+        news.setImage(imageBase64);
         newsList.add(news);
         return Response.status(Response.Status.CREATED).entity(news).build();
     }
