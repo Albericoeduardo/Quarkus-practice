@@ -12,6 +12,14 @@ import java.util.Optional;
 import org.acme.form.NewsForm;
 import org.acme.model.News;
 import org.acme.service.NewsService;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,6 +32,9 @@ import jakarta.ws.rs.core.Response;
 public class NewsServiceImpl implements NewsService{
 
     public static List<News> newsList = new ArrayList<>();
+
+    String getUrl = "https://pics.shade.cool/api/upload";
+
     String apiKey = System.getenv("APIKEY");
     HttpClient httpClient = HttpClient.newHttpClient();
 
@@ -64,6 +75,31 @@ public class NewsServiceImpl implements NewsService{
     }
 
     public String uploadImg(byte[] imgBytes) throws IOException, InterruptedException{
+        String uploadUrl = "https://pics.shade.cool/api/upload";
+
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+            HttpPost uploadFile = new HttpPost(uploadUrl);
+            uploadFile.setHeader("Authorization", "Bearer " + apiKey);
+
+            MultipartEntityBuilder builder = MultipartEntityBuilder.create()
+                    .addBinaryBody("file", imgBytes, ContentType.APPLICATION_OCTET_STREAM, "image.jpg");
+
+            HttpEntity multipart = builder.build();
+            uploadFile.setEntity(multipart);
+
+            try (CloseableHttpResponse response = httpClient.execute(uploadFile)) {
+                int statusCode = response.getStatusLine().getStatusCode();
+                if (statusCode == 200) {
+                    String responseBody = EntityUtils.toString(response.getEntity());
+                    String imgUrl = parseImgUrlFromResponse(responseBody);
+                    return imgUrl;
+                } else {
+                    throw new IOException("Failed to upload image: " + EntityUtils.toString(response.getEntity()));
+                }
+            }
+        }
+
+        /*
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create("https://pics.shade.cool/dashboard/upload-ui"))
             .header("Authorization", "Bearer " + apiKey)
@@ -80,6 +116,7 @@ public class NewsServiceImpl implements NewsService{
         } else {
             throw new IOException("Failed to upload image: " + response.body());
         }
+        */
     }
 
     private String parseImgUrlFromResponse(String responseBody) {
