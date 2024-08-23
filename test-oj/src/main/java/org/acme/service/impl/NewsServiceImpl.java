@@ -24,6 +24,9 @@ import jakarta.ws.rs.core.Response;
 public class NewsServiceImpl implements NewsService{
 
     public static List<News> newsList = new ArrayList<>();
+
+    String getUrl = "https://pics.shade.cool/api/images/";
+
     String apiKey = System.getenv("APIKEY");
     HttpClient httpClient = HttpClient.newHttpClient();
 
