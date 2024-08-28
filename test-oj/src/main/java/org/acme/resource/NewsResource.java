@@ -2,7 +2,6 @@ package org.acme.resource;
 
 import org.acme.form.NewsForm;
 import org.acme.service.NewsService;
-import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
@@ -29,8 +28,7 @@ public class NewsResource {
     }
 
     @POST
-    @Consumes(MediaType.MULTIPART_FORM_DATA)
-    public Response createNews(@MultipartForm NewsForm form){
+    public Response createNews(NewsForm form){
         return newsService.createNews(form);
     }
 
