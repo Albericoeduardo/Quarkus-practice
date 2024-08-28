@@ -4,7 +4,7 @@ public class News {
     private Long id;
     private String title;
     private String description;
-    private String image;
+    private String imageUrl;
 
     public Long getId() {
         return id;
@@ -24,10 +24,10 @@ public class News {
     public void setDescription(String description) {
         this.description = description;
     }
-    public String getImage() {
-        return image;
+    public String getImageUrl() {
+        return imageUrl;
     }
-    public void setImage(String image) {
-        this.image = image;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

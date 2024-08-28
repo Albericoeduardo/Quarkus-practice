@@ -14,7 +14,7 @@ public record NewsDTO (
         news.setId(newsDTO.id());
         news.setTitle(newsDTO.title());
         news.setDescription(newsDTO.description());
-        news.setImage(newsDTO.image());
+        news.setImageUrl(newsDTO.image());
 
         return news;
     }

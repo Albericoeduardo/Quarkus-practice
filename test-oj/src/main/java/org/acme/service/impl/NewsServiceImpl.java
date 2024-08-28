@@ -27,7 +27,7 @@ public class NewsServiceImpl implements NewsService{
         News news = new News();
         news.setTitle(newsForm.getTitle());
         news.setDescription(newsForm.getDescription());
-        news.setImage(newsForm.getImageUrl());
+        news.setImageUrl(newsForm.getImageUrl());
 
         newsList.add(news);
         return Response.status(Response.Status.CREATED).entity(news).build();
