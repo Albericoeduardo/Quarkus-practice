@@ -1,26 +1,32 @@
 package org.acme.form;
 
-import org.jboss.resteasy.annotations.providers.multipart.PartType;
-
 public class NewsForm {
-    private String name;
+    private String title;
+    private String description;
+    private String imageUrl;
 
-    @PartType("application/octet-stream")
-    private byte[] image;
-
-    public String getName() {
-        return name;
+    // Getters e Setters
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public byte[] getImage() {
-        return image;
+    public String getDescription() {
+        return description;
     }
 
-    public void setImage(byte[] image) {
-        this.image = image;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
