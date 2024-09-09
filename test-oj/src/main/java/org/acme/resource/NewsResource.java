@@ -1,5 +1,7 @@
 package org.acme.resource;
 
+import java.util.UUID;
+
 import org.acme.form.NewsForm;
 import org.acme.service.NewsService;
 
@@ -34,7 +36,7 @@ public class NewsResource {
 
     @DELETE
     @Path("/{id}")
-    public Response deleteNews(@PathParam("id") Long id){
+    public Response deleteNews(@PathParam("id") UUID id){
         return newsService.deleteNews(id);
     }
 }

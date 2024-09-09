@@ -1,5 +1,7 @@
 package org.acme.service;
 
+import java.util.UUID;
+
 import org.acme.form.NewsForm;
 
 import jakarta.ws.rs.core.Response;
@@ -9,5 +11,5 @@ public interface NewsService {
 
     Response createNews(NewsForm newsForm);
 
-    Response deleteNews(Long id);
+    Response deleteNews(UUID id);
 }
