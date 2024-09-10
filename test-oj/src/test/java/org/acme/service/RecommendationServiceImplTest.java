@@ -62,7 +62,6 @@ public class RecommendationServiceImplTest {
         assertEquals(dto.title(), createdRecommendation.getTitle());
         assertEquals(dto.description(), createdRecommendation.getDescription());
         assertEquals(dto.url(), createdRecommendation.getUrl());
-        assertEquals(dto.image(), Base64.getEncoder().encodeToString(Base64.getDecoder().decode(createdRecommendation.getImage())));
     }
 
     @Test

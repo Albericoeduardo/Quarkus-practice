@@ -4,7 +4,7 @@ import org.acme.model.Project;
 
 public record ProjectDTO(
     Long id,
-    String image,
+    String imageUrl,
     String title,
     String description
 ) {
@@ -13,8 +13,8 @@ public record ProjectDTO(
 
         project.setId(projectDTO.id());
         project.setTitle(projectDTO.title());
-        project.setDescription(projectDTO.image());
-        project.setImage(projectDTO.image());
+        project.setDescription(projectDTO.description());
+        project.setImage(projectDTO.imageUrl());
 
         return project;
     }
