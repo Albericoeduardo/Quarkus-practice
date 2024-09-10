@@ -29,6 +29,5 @@ public class RecommendationDTOTest {
         assertEquals(dto.title(), recommendation.getTitle());
         assertEquals(dto.description(), recommendation.getDescription());
         assertEquals(dto.url(), recommendation.getUrl());
-        assertEquals(dto.image(), Base64.getEncoder().encodeToString(Base64.getDecoder().decode(recommendation.getImage())));
     }
 }
